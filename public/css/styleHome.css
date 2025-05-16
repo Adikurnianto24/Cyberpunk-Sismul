@@ -1,0 +1,255 @@
+/*
+PURE RESPONSIVE CSS3 SLIDESHOW GALLERY by Roko C. buljan
+http://stackoverflow.com/a/34696029/383904
+*/
+
+/*
+CYBERPUNK THEME CSS
+*/
+
+:root {
+    --neon-pink: #ff00ff;
+    --neon-blue: #00ffff;
+    --neon-yellow: #ffff00;
+    --neon-green: #00ff9f;
+    --dark-bg: #0d0221;
+    --darker-bg: #09021a;
+    --cyberpunk-grid: rgba(255, 0, 255, 0.1);
+    --audio-player-bg: var(--neon-blue);
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    background-image: linear-gradient(0deg, var(--cyberpunk-grid) 1px, transparent 1px),
+                     linear-gradient(90deg, var(--cyberpunk-grid) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: center;
+}
+
+.container {
+    padding: 20px;
+    position: relative;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--darker-bg) 25%, transparent 25%),
+                linear-gradient(-45deg, var(--darker-bg) 25%, transparent 25%);
+    background-size: 4px 4px;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+h1 {
+    text-align: center;
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    text-align: center;
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue);
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+p {
+    color: #ffffff;
+    border-left: 3px solid var(--neon-green);
+    padding-left: 15px;
+    margin: 20px 0;
+    text-shadow: 0 0 5px rgba(0, 255, 159, 0.3);
+}
+
+audio, video {
+    width: 100%;
+    background: var(--audio-player-bg);
+    border: 1px solid var(--neon-blue);
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+audio::-webkit-media-controls-panel, 
+video::-webkit-media-controls-panel {
+    background-color: var(--audio-player-bg);
+}
+
+/* Image styling */
+#imgHomeM {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 2px solid var(--neon-pink);
+    border-radius: 5px;
+    box-shadow: 0 0 15px var(--neon-pink);
+    transition: all 0.3s ease;
+    filter: saturate(1.2) contrast(1.1);
+}
+
+#imgHomeM:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px var(--neon-pink);
+}
+
+/* Footer styling */
+#footerHome {
+    background-color: var(--darker-bg);
+    background-image: linear-gradient(0deg, var(--darker-bg), transparent),
+                      url('/img/Vector3.svg');
+    border-top: 2px solid var(--neon-blue);
+    padding-top: 6rem;
+    margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#footerHome::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-green), var(--neon-yellow));
+    animation: neonFlow 3s infinite linear;
+}
+
+@keyframes neonFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Rest of original CSS for slider functionality */
+.CSSgal {
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+    box-shadow: 0px 12px 24px rgba(255, 0, 255, 0.5);
+}
+
+.CSSgal .slider {
+	height: 100%;
+	white-space: nowrap;
+	font-size: 0;
+	transition: 0.8s;
+}
+
+.CSSgal .slider > * {
+	font-size: 1rem;
+	display: inline-block;
+	white-space: normal;
+	vertical-align: top;
+	height: 100%;
+	width: 100%;
+	background: none 50% no-repeat;
+	background-size: cover;
+}
+
+.CSSgal .prevNext {
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	width: 100%;
+	height: 0;
+}
+
+.CSSgal .prevNext > div+div {
+	visibility: hidden;
+}
+
+.CSSgal .prevNext a {
+	background: var(--darker-bg);
+	color: var(--neon-blue);
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	opacity: 0.7;
+	transition: 0.3s;
+	transform: translateY(-50%);
+	border-radius: 50%;
+	border: 2px solid var(--neon-blue);
+	box-shadow: 0 0 10px var(--neon-blue);
+	left: 0;
+}
+
+.CSSgal .prevNext a:hover {
+	opacity: 1;
+	box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.CSSgal .prevNext a+a {
+	left: auto;
+	right: 0;
+}
+
+/* NAVIGATION */
+.CSSgal >s:target ~ .prevNext >* { visibility: hidden; }
+#s1:target ~ .prevNext >*:nth-child(1) { visibility: visible; }
+#s2:target ~ .prevNext >*:nth-child(2) { visibility: visible; }
+#s3:target ~ .prevNext >*:nth-child(3) { visibility: visible; }
+#s4:target ~ .prevNext >*:nth-child(4) { visibility: visible; }
+
+/* SLIDER ANIMATION POSITIONS */
+#s1:target ~ .slider { transform: translateX(   0%); }
+#s2:target ~ .slider { transform: translateX(-100%); }
+#s3:target ~ .slider { transform: translateX(-200%); }
+#s4:target ~ .slider { transform: translateX(-300%); }
+
+/* YOU'RE THE DESIGNER! 
+   ____________________
+   All above was mainly to get it working :)
+   CSSgal CUSTOM STYLES / OVERRIDES HERE: */
+
+.CSSgal{
+	color: #fff;	
+	text-align: center;
+	width: auto;
+	height: 400px;
+}
+
+.CSSgal .slider h2 {
+	margin-top: 40vh;
+	font-weight: 200;
+	letter-spacing: -0.06em;
+	word-spacing: 0.2em;
+	font-size: 3em;
+    color: rgba(0, 0, 0, 0);
+}
+
+.CSSgal .slider .slide1 {
+    background-image: url('img/gambar1.png');
+}
+.CSSgal .slider .slide2 {
+    background-image: url('img/gambar2.jpg');
+}
+.CSSgal .slider .slide3 {
+    background-image: url('img/gambar3.png');
+}
+.CSSgal .slider .slide4 {
+    background-image: url('img/gambar4.png');
+}
+
+.CSSgal a {
+	border-radius: 50%;
+	margin: 0 3px;
+	color: rgba(0,0,0,0.8);
+	text-decoration: none;
+	
+}
+
+#cardFooterH {
+    margin-top: 12rem;
+}

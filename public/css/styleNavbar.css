@@ -1,0 +1,80 @@
+/* Cyberpunk Navbar Styling */
+.navbar {
+    background: linear-gradient(to right, #0d0221, #12023d) !important;
+    border-bottom: 2px solid #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    padding: 12px 0;
+}
+
+.navbar-brand {
+    color: #00ffff !important;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00ffff;
+    position: relative;
+    padding-left: 10px;
+}
+
+.navbar-brand::before {
+    content: "<";
+    color: #ff00ff;
+    position: absolute;
+    left: -5px;
+    animation: blink 1.5s infinite;
+}
+
+.navbar-brand::after {
+    content: "/>";
+    color: #ff00ff;
+    position: absolute;
+    right: -15px;
+    animation: blink 1.5s infinite reverse;
+}
+
+.nav-link {
+    color: white !important;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00ff9f;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: #00ff9f !important;
+    text-shadow: 0 0 5px #00ff9f;
+}
+
+.nav-link.active {
+    color: #ffff00 !important;
+    text-shadow: 0 0 8px #ffff00;
+}
+
+.navbar-toggler {
+    border: 1px solid #ff00ff;
+    background-color: rgba(255, 0, 255, 0.2);
+}
+
+.navbar-toggler-icon {
+    filter: invert(1) hue-rotate(145deg);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
