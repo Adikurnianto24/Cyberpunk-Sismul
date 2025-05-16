@@ -113,7 +113,7 @@ Project ini dilisensikan di bawah [MIT License](LICENSE)
 - GitHub: [Adikurnianto24](https://github.com/Adikurnianto24)
 
 ## Screenshot
-[Tambahkan screenshot aplikasi di sini]
+![image](https://github.com/user-attachments/assets/d256d94d-fc8c-489e-9119-6d3ff994f4e1)
 
 ## Catatan Penting
 - Pastikan server web Anda memiliki izin yang tepat untuk folder `writable/`
